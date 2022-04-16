@@ -2,7 +2,7 @@
 def showBoard():
     intro = 'Can you Guess the word?'
     prompt = 'Guess a letter: '
-    word = 'python'
+    word = 'mom'
     guessed = []
     wordBoard = ['_']*len(word)
     turns = 7
@@ -23,14 +23,14 @@ def showBoard():
                 return -1
         return 1 
     
-    while turns > 0:   
+    while turns > 0:
         guess = input(prompt)
         if guess in word:
             word,wordBoard=checkGuess(guess,word,wordBoard)
             guessed.append(guess)
             print(guessed)
             print(f'You guessed "{guess.capitalize()}"')
-            print(wordBoard)
+            print(wordBoard)      
         elif guess not in word:
             if guess in guessed:
                 print(f'--Incorrect!--\nYou have already guessed "{guess.capitalize()}"..\nTry again...')
