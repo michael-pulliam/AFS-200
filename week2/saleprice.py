@@ -17,21 +17,21 @@ add_tax = 1.065
 if reg_price < 20:
     print(f"Item price ${reg_price:.2f} x {quantity}")
     print(f"Sales Tax ${reg_price * state_tax:.2f}")
-    print(f"Total ${quantity * reg_price * add_tax:.2f}")
+    print(f"Total ${quantity * reg_price * add_tax:,.2f}")
 elif reg_price > 19.99 and reg_price < 40:
     after_discount1 = float(reg_price - discount1)
     print(f"Item price ${reg_price:.2f}")
     print(f"After 15% discount: ${after_discount1:.2f} x {quantity}")
     print(f"Sales Tax ${quantity * after_discount1 * state_tax:.2f}")
-    print(f"total ${quantity * after_discount1 * add_tax:.2f}")
-    print(f"You saved ${quantity * reg_price * .25:.2f}")
+    print(f"total ${quantity * after_discount1 * add_tax:,.2f}")
+    print(f"You saved ${quantity * reg_price * .25:,.2f}")
 elif reg_price > 39.99:
     after_discount2 = float(reg_price - discount2)
     print(f"Item price ${reg_price:.2f}")
     print(f"After 25% discount: ${after_discount2:.2f} x {quantity}")
     print(f"Sales Tax ${quantity * after_discount2 * state_tax:.2f}")
-    print(f"total ${quantity * after_discount2 * add_tax:.2f}")
-    print(f"You saved ${quantity * reg_price * .25:.2f}")
+    print(f"total ${quantity * after_discount2 * add_tax:,.2f}")
+    print(f"You saved ${quantity * reg_price * .25:,.2f}")
     
 # Calculate the sales tax on the total purchase. 
  
