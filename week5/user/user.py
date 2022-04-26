@@ -3,7 +3,7 @@ import requests
 
 class User:
     
-    def __init__(self, first_name, last_name, email, user_name, password, UUID, home_number, mobile_number):
+    def __init__(self, first_name, last_name, email, user_name, password, UUID, home_number, mobile_number, picture_large, picture_thumbnail):
         self.first_name=first_name
         self.last_name=last_name
         self.email=email
@@ -12,7 +12,9 @@ class User:
         self.UUID=UUID
         self.home_number=home_number
         self.mobile_number=mobile_number
-    
+        self.picture_large = picture_large
+        self.picture_thumbnail = picture_thumbnail
+        
     def set_first_name(self, first_name):
         self.first_name = first_name
     def get_first_name(self):
@@ -52,6 +54,16 @@ class User:
         self.mobile_number = mobile_number
     def get_mobile_number(self):
         return self.mobile_number
+    
+    def set_picture_large(self, picture_large):
+        self.picture_large = picture_large
+    def get_picture_large(self):
+        return self.picture_large
+    
+    def set_picture_thumbnail(self, picture_thumbnail):
+        self.picture_thumbnail = picture_thumbnail
+    def get_picture_thumbnail(self):
+        return self.picture_thumbnail
         
     def __str__(self):
         retStr = (f'{self.first_name} {self.last_name} ({self.email})') 
@@ -75,8 +87,9 @@ class AuthorizedUsers():
         return None
        
 
-def getData(subject):
-    URL = "https://randomuser.me/api/"+subject+".json"
+def getData(quantity, nat):
+    
+    URL = f"https://randomuser.me/api/?results={quantity}&nat={nat}"
     try:
         response = requests.get(URL, timeout=5)
         response.raise_for_status()
@@ -92,5 +105,24 @@ def getData(subject):
         print(err)
         
 display_users = AuthorizedUsers()
-json_users_data = getData("results")
+json_users_data = getData(10, 'us')
+
+for user in json_users_data['results']:
+    first_name = user['name']['first']
+    last_name = user['name']['last']
+    email = user['email']
+    user_name = user['login']['username']
+    password = user['login']['password']
+    UUID = user['login']['uuid']
+    home_number = user['phone']
+    mobile_number = user['cell']
+    picture_large = user['picture']['large']
+    picture_thumbnail = user['picture']['thumbnail']
+    
+    # print(f'{first_name} {last_name} ({email})')
+    new_user = User(first_name, last_name, email, user_name, password, UUID, home_number, mobile_number, picture_large, picture_thumbnail)
+    print(new_user)
+#     display_users.add_user(new_user)
+    
+# display_users.show_auth_users()
     

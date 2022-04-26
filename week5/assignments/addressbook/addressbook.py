@@ -33,6 +33,12 @@ class Contact:
         self.digital_photo = digital_photo
     def get_digital_photo(self):
         return self.digital_photo
+    
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} ({self.email})"
+    
+    def __repr__(self):
+        return f"{self.first_name} {self.last_name} ({self.email})"
            
 class AddressBook():
     def __init__(self):
@@ -50,6 +56,7 @@ class AddressBook():
             
             if address.getFirstName().lower().startswith(searchStr.lower()) or address.getLastName().lower().startswith(searchStr.lower()):
                 results.append(address)
+
                 
         return results
     

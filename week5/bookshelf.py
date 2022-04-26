@@ -4,8 +4,8 @@ import requests
 def getData(subject):
     URL = "http://openlibrary.org/subject/"+subject+".json"
     try:
-        response = requsets.get(URL, timeout=5)
-        response.reise_for_status()
+        response = requests.get(URL, timeout=5)
+        response.raise_for_status()
         response_JSON = response.json()
         return response_JSON
     except requests.exceptions.HTTPError as errh:
