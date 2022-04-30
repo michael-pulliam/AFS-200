@@ -80,11 +80,11 @@ class AuthorizedUsers():
         for users in self.auth_users:
             print(users)
         
-    def search_for_users(self, UUID):
-        for users in self.auth_users:
-            if(users.get_UUID() == UUID):
-                return UUID
-        return None
+    # def search_for_users(self, UUID):
+    #     for users in self.auth_users:
+    #         if(users.get_UUID() == UUID):
+    #             return UUID
+    #     return None
        
 
 def getData(quantity, nat):

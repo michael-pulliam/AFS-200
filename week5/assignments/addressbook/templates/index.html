@@ -18,14 +18,15 @@
         
     </div>
     <div class="rolodex">
-        <!-- 
+        {% for contact in contacts %}
 		<div class="card">
-            <div class="photo"><img src="photo.jpg" alt=""></div>
-            <div class="name">Your Name</div>
-            <div class="phone">555-555-5555</div>
-            <div class="emal">email@gmail.com</div>
-        </div> 
-		-->
+            <div class="photo"><img src="{{contact.picture_thumbnail}}" alt=""></div>
+            <div class="name">{{contact.first_name}} {{contact.last_name}}</div>
+            <div class="phone">{{contact.mobile_number}}</div>
+            <div class="emal">{{contact.email}}</div>
+        </div>
+        {% endfor %}
+		
                 
     </div>
 </body>
