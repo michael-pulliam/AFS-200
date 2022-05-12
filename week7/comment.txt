@@ -1,0 +1,15 @@
+     {% comment %} <div class="questions-wrapper">
+        <form action="http://127.0.0.1:5000/" method="POST">
+
+            <input type="search" id="search" name="search">
+            <button type="submit">Search</button>
+            <button onclick="location.href='/'">Clear Results</button>
+        </form>
+        
+    </div>  {% endcomment %}
+
+                <div class="name">{{question.first_name}} {{contact.last_name}}</div>
+            <div class="phone">{{contact.mobile_number}}</div>
+            <div class="emal">{{contact.email}}</div>
+
+                        <input type='radio' value={{questions.}} name='1' />
